@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         DatabaseHelper db = new DatabaseHelper(this);
 
 //                db.addData("Sasana Tresna Werdha Ciracas","Nursing Home","Jl. Raya Ciracas No.60, RT.4/RW.11, Klp. Dua Wetan, Ciracas, Kota Jakarta Timur");
