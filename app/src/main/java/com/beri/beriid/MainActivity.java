@@ -2,7 +2,9 @@ package com.beri.beriid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -10,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.activity_main);
 
 
         DatabaseHelper db = new DatabaseHelper(this);
@@ -30,5 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this,"Value Saved", Toast.LENGTH_LONG).show();
 
+    }
+
+
+    public void gantikelogin(View view) {
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
     }
 }

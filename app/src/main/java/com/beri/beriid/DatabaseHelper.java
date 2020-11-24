@@ -6,10 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.beri.beriid.Model.Foundation;
-
-import java.util.ArrayList;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "beriiddatabase";
@@ -48,8 +44,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-
-
     public boolean addData(String name, String description, String address) {
 
         SQLiteDatabase db = getWritableDatabase();
@@ -63,6 +57,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return true;
+    }
+
+    public boolean insertdatauser(String name,String email,String password,String nik,String address){
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("name",name);
+            contentValues.put("email",email);
+            contentValues.put("password",password);
+            contentValues.put("nik",nik);
+            contentValues.put("address",address);
+            long ins = db.insert("users",null,contentValues);
+            if (ins==-1) return false;
+            else return true;
+    }
+    public Boolean checkemail(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from users where email=?",new String[]{email});
+        if (cursor.getCount()>0) return false;
+        else return true;
     }
 
     @Override
@@ -79,31 +93,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         onCreate(sqLiteDatabase);
     }
-
-    public ArrayList<Foundation> getAllYayasanData(){
-        ArrayList<Foundation> arrayList = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT *FROM foundations", null);
-
-        while(cursor.moveToNext()){
-            int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String desc = cursor.getString(2);
-            String address = cursor.getString(3);
-
-            Foundation foundation = new Foundation(id,name,desc,address);
-
-
-            arrayList.add(foundation);
-
-
-        }
-
-        return arrayList;
-
-
-    }
-
-
 }
 
