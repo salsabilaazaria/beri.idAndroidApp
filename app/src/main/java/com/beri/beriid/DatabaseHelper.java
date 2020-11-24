@@ -5,15 +5,22 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.widget.Toast;
 
+import com.beri.beriid.Model.Donation;
 import com.beri.beriid.Model.Foundation;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "beriiddatabase";
     private static final int DB_VERSION = 1;
+
+    private ByteArrayOutputStream objectByteArrayOutputStream;
+    private byte[] imageInBytes;
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -27,22 +34,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "password TEXT, " +
                 "nik TEXT, " +
                 "address TEXT)";
-        String sqlProducts = "CREATE TABLE products(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, " +
-                "description TEXT, " +
-                "quantity INTEGER)";
         String sqlFoundations = "CREATE TABLE foundations(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, " +
                 "description TEXT, " +
                 "address TEXT)";
         String sqlDonations = "CREATE TABLE donations(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "user_id INTEGER,product_id INTEGER,foundation_id INTEGER,"+
+                "user_id INTEGER,foundation_id INTEGER,"+
+                "name TEXT, " +
+                "description TEXT, " +
+                "quantity INTEGER, " +
+                "image BLOB, " +
                 "FOREIGN KEY(user_id) REFERENCES users(id), " +
-                "FOREIGN KEY(product_id) REFERENCES products(id), " +
                 "FOREIGN KEY(foundation_id) REFERENCES foundations(id))";
 
         sqLiteDatabase.execSQL(sqlUsers);
-        sqLiteDatabase.execSQL(sqlProducts);
         sqLiteDatabase.execSQL(sqlFoundations);
         sqLiteDatabase.execSQL(sqlDonations);
 
@@ -63,6 +68,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return true;
+    }
+
+    public void addDonationData(Donation Donationob) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Bitmap imageToStoreBitmap = Donationob.getImage();
+        objectByteArrayOutputStream = new ByteArrayOutputStream();
+        imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG, 100, objectByteArrayOutputStream);
+
+        imageInBytes = objectByteArrayOutputStream.toByteArray();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("user_id", Donationob.getUser_id());
+        contentValues.put("foundation_id", Donationob.getFoundation_id());
+        contentValues.put("quantity", Donationob.getQuantity());
+        contentValues.put("name", Donationob.getName());
+        contentValues.put("description", Donationob.getDescription());
+        contentValues.put("image", imageInBytes);
+
+        db.insert("donations", null, contentValues);
     }
 
     @Override

@@ -8,7 +8,6 @@
     android:background="#fff"
     android:orientation="vertical">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -130,7 +129,8 @@
             android:background="#fa5a5a"
             android:textColor="#fff"
             android:transitionName="btn_tran"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:onClick="storeImage"/>
 
     </LinearLayout>
 

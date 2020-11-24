@@ -18,8 +18,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.beri.beriid.Model.Donation;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.File;
 import java.io.InputStream;
@@ -27,9 +31,13 @@ import java.io.InputStream;
 public class DonateActivity extends AppCompatActivity {
 
     Button button;
+    TextInputLayout name, desc, quantity;
     private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
     private static final int REQUEST_CODE_SELECT_IMAGE = 2;
     private ImageView imageSelected;
+    Bitmap imageToStore;
+
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,12 @@ public class DonateActivity extends AppCompatActivity {
                 }
             }
         });
+
+        name = findViewById(R.id.productName);
+        desc = findViewById(R.id.productDescription);
+        quantity = findViewById(R.id.productQuantity);
+
+        db = new DatabaseHelper(this);
     }
 
     private void selectImage() {
@@ -79,6 +93,7 @@ public class DonateActivity extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                         imageSelected.setImageBitmap(bitmap);
 
+                        imageToStore = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
                         File selectedImageFile = new File(getPathFromUri(selectedImageUri));
                     }catch (Exception exception){
                         Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
@@ -100,5 +115,16 @@ public class DonateActivity extends AppCompatActivity {
             cursor.close();
         }
         return filePath;
+    }
+
+    public void storeImage(View view){
+        if(!name.getEditText().getText().toString().isEmpty() && !desc.getEditText().getText().toString().isEmpty() && !quantity.getEditText().getText().toString().isEmpty() && imageSelected.getDrawable()!=null){
+            db.addDonationData(new Donation(1, 1, Integer.parseInt(quantity.getEditText().getText().toString()), name.getEditText().getText().toString(), desc.getEditText().getText().toString(), imageToStore));
+            Toast.makeText(this, "Data added!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, HomePageActivity.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, "Please insert data", Toast.LENGTH_SHORT).show();
+        }
     }
 }
