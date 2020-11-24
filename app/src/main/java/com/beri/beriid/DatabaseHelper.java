@@ -2,8 +2,13 @@ package com.beri.beriid;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.beri.beriid.Model.Foundation;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -74,5 +79,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         onCreate(sqLiteDatabase);
     }
+
+    public ArrayList<Foundation> getAllYayasanData(){
+        ArrayList<Foundation> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT *FROM foundations", null);
+
+        while(cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String desc = cursor.getString(2);
+            String address = cursor.getString(3);
+
+            Foundation foundation = new Foundation(id,name,desc,address);
+
+
+            arrayList.add(foundation);
+
+
+        }
+
+        return arrayList;
+
+
+    }
+
+
 }
 
