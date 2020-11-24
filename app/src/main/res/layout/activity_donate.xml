@@ -17,13 +17,14 @@
         android:background="#000"
         android:textAlignment="center"
         android:textSize="32sp"
-        android:paddingHorizontal="10px"/>
+        android:paddingVertical="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="20dp">
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,26 +68,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/productName"
             android:hint="Name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Type"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/productType"
-            android:hint="Type"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -148,7 +129,8 @@
             android:text="Donate"
             android:background="#fa5a5a"
             android:textColor="#fff"
-            android:transitionName="btn_tran"/>
+            android:transitionName="btn_tran"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
