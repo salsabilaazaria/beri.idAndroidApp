@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardUseCompatPadding="true"
+    android:elevation="4dp"
+
+    >
+
+    <RelativeLayout
+        android:id="@+id/gridviewdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/productimgview"
+            android:src="@drawable/ic_baseline_home_24"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <TextView
+            android:id="@+id/nametextview"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productimgview"
+            android:layout_marginTop="5dp"
+            android:text="Avocado Juice"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"
+
+            />
+
+        <TextView
+            android:id="@+id/pricetextview"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nametextview"
+            android:layout_marginTop="5dp"
+            android:text="Rp.20.000"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"
+
+            />
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
