@@ -26,7 +26,7 @@
             />
 
         <TextView
-            android:id="@+id/nametextview"
+            android:id="@+id/homeyayasannametextview"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/productimgview"
@@ -39,10 +39,10 @@
             />
 
         <TextView
-            android:id="@+id/pricetextview"
+            android:id="@+id/homeyayasandescriptiontextview"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nametextview"
+            android:layout_below="@id/homeyayasannametextview"
             android:layout_marginTop="5dp"
             android:text="Rp.20.000"
             android:textAlignment="center"

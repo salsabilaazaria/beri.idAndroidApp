@@ -27,22 +27,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "password TEXT, " +
                 "nik TEXT, " +
                 "address TEXT)";
-        String sqlProducts = "CREATE TABLE products(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, " +
-                "description TEXT, " +
-                "quantity INTEGER)";
+//        String sqlProducts = "CREATE TABLE products(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+//                "name TEXT, " +
+//                "description TEXT, " +
+//                "quantity INTEGER)";
         String sqlFoundations = "CREATE TABLE foundations(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, " +
                 "description TEXT, " +
                 "address TEXT)";
         String sqlDonations = "CREATE TABLE donations(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "user_id INTEGER,product_id INTEGER,foundation_id INTEGER,"+
+                "name TEXT, " +
+                "description TEXT, " +
+                "quantity INTEGER," +
+                "image BLOB," +
                 "FOREIGN KEY(user_id) REFERENCES users(id), " +
-                "FOREIGN KEY(product_id) REFERENCES products(id), " +
                 "FOREIGN KEY(foundation_id) REFERENCES foundations(id))";
 
         sqLiteDatabase.execSQL(sqlUsers);
-        sqLiteDatabase.execSQL(sqlProducts);
+//        sqLiteDatabase.execSQL(sqlProducts);
         sqLiteDatabase.execSQL(sqlFoundations);
         sqLiteDatabase.execSQL(sqlDonations);
 
@@ -68,12 +71,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         String sqlUsers = "DROP TABLE IF EXISTS users";
-        String sqlProducts = "DROP TABLE IF EXISTS products";
+//        String sqlProducts = "DROP TABLE IF EXISTS products";
         String sqlFoundations = "DROP TABLE IF EXISTS foundations";
         String sqlDonations = "DROP TABLE IF EXISTS donations";
 
         sqLiteDatabase.execSQL(sqlUsers);
-        sqLiteDatabase.execSQL(sqlProducts);
+//        sqLiteDatabase.execSQL(sqlProducts);
         sqLiteDatabase.execSQL(sqlFoundations);
         sqLiteDatabase.execSQL(sqlDonations);
 
@@ -102,6 +105,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return arrayList;
 
 
+    }
+
+    Cursor readYayasanData(){
+        String query = "SELECT * FROM Foundations";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db!= null){
+            cursor = db.rawQuery(query, null);
+
+        }
+        return cursor;
     }
 
 
