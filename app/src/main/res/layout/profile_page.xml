@@ -7,8 +7,6 @@
     tools:context=".MainActivity"
     >
 
-
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -72,51 +70,91 @@
                 android:textAlignment="center"
                 />
 
-
-            <TextView
-                android:id="@+id/profile_nik"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NIK            : 3000000732114679"
-                android:textColor="#2E2D2B"
-                android:layout_margin="5dp"
-                />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NIK            : "
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/profile_nik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3000000732114679"
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+            </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/profile_email"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email         : User5572322@gmail.com"
-                android:textColor="#2E2D2B"
-                android:layout_margin="5dp"
-                />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/profile_address"
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email         : "
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/profile_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User5572322@gmail.com"
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Address    : Jl. Sutera Barat X, Alam Sutera "
-                android:textColor="#2E2D2B"
-                android:layout_margin="5dp"
-                />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Address    : "
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/profile_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jl. Sutera Barat X, Alam Sutera"
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cfoundationbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/userinfo"
         >
 
         <TextView
-            android:id="@+id/transactionhistory"
+            android:id="@+id/profile_transactionhistorybtn"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:layout_below="@+id/topdonation"
             android:text="Transaction History"
             android:textColor="#F8F6F9"
             android:background="#C65E5B"
