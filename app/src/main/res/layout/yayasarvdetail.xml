@@ -19,15 +19,15 @@
         <ImageView
             android:id="@+id/productimgview"
             android:src="@drawable/ic_baseline_home_24"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerHorizontal="true"
 
             />
 
         <TextView
             android:id="@+id/homeyayasannametextview"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/productimgview"
             android:layout_marginTop="5dp"
@@ -40,7 +40,7 @@
 
         <TextView
             android:id="@+id/homeyayasandescriptiontextview"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/homeyayasannametextview"
             android:layout_marginTop="5dp"

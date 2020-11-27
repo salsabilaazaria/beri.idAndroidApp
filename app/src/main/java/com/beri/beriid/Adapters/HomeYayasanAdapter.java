@@ -44,7 +44,7 @@ public class HomeYayasanAdapter extends RecyclerView.Adapter<HomeYayasanAdapter.
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 3;
     }
 
 
