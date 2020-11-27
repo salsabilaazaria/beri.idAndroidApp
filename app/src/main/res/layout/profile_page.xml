@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"
+        android:background="#2E2D2B"
+        app:itemTextColor="#F8F6F9"
+        app:itemIconSize="90px"
+        app:itemIconTint="#F8F6F9"
+        />
+
+    <TextView
+        android:id="@+id/myaccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="My Account"
+        android:textSize="16pt"
+        android:textAlignment="center"
+        android:textColor="#F8F6F9"
+        android:background="#2E2D2B"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <ImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/myaccount"
+        android:src="@mipmap/ic_launcher"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_picture"
+        android:id="@+id/userinfo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            >
+
+            <TextView
+                android:id="@+id/profile_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User5572322"
+                android:textSize="10pt"
+                android:textColor="#2E2D2B"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="NIK            : "
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/profile_nik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3000000732114679"
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email         : "
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/profile_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User5572322@gmail.com"
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="Address    : "
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/profile_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jl. Sutera Barat X, Alam Sutera"
+                    android:textColor="#2E2D2B"
+                    android:layout_margin="5dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userinfo"
+        >
+
+        <TextView
+            android:id="@+id/profile_transactionhistorybtn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Transaction History"
+            android:textColor="#F8F6F9"
+            android:background="#C65E5B"
+            android:textSize="8pt"
+            android:layout_margin="30dp"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
