@@ -22,7 +22,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private ByteArrayOutputStream objectByteArrayOutputStream;
     private byte[] imageInBytes;
-
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
@@ -156,23 +155,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Foundation> getAllYayasanData(){
-        ArrayList<Foundation> arrayList = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT *FROM foundations", null);
 
-        while(cursor.moveToNext()){
-            int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String desc = cursor.getString(2);
-            String address = cursor.getString(3);
-
-            Foundation foundation = new Foundation(id,name,desc,address);
-
-            arrayList.add(foundation);
-        }
-        return arrayList;
-    }
 
     public ArrayList<History> viewHistory() {
         ArrayList<History> arrayList = new ArrayList<>();
@@ -214,6 +197,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sqlDonations);
 
         onCreate(sqLiteDatabase);
+    }
+
+    public ArrayList<Foundation> getAllYayasanData(){
+        ArrayList<Foundation> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT *FROM foundations", null);
+
+        while(cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String desc = cursor.getString(2);
+            String address = cursor.getString(3);
+
+            Foundation foundation = new Foundation(id,name,desc,address);
+
+            arrayList.add(foundation);
+        }
+        return arrayList;
     }
 
 }
