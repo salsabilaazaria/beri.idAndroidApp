@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2e2d2b"
+    tools:context=".Register">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TextView
+        android:id="@+id/HeadRegis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Registration"
+        android:textAlignment="center"
+        android:textColor="#eff0f2"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginVertical="50dp"
+        />
+
+        <EditText
+            android:id="@+id/LoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_border_regisoutline"
+            android:ems="10"
+            android:hint="Email Address"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="#eff0f2"
+            android:textColorHint="#eff0f2"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="54dp"
+            />
+
+        <EditText
+            android:id="@+id/InputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_border_regisoutline"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="#eff0f2"
+            android:textColorHint="#eff0f2"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="54dp"
+            />
+
+
+            <EditText
+                android:id="@+id/VerifPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="54dp"
+                android:background="@drawable/round_border_regisoutline"
+                android:ems="10"
+                android:hint="Retype Password"
+                android:inputType="textPassword"
+                android:padding="16dp"
+                android:textAlignment="center"
+                android:textColor="#eff0f2"
+                android:textColorHint="#eff0f2" />
+
+        <EditText
+            android:id="@+id/InputName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_border_regisoutline"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="#eff0f2"
+            android:textColorHint="#eff0f2"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="54dp"
+            />
+
+        <EditText
+        android:id="@+id/InputAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_border_regisoutline"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textColor="#eff0f2"
+        android:textColorHint="#eff0f2"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="54dp"
+        />
+
+        <EditText
+            android:id="@+id/InputNIK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_border_regisoutline"
+            android:ems="10"
+            android:hint="NIK"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="#eff0f2"
+            android:textColorHint="#eff0f2"
+            android:layout_marginBottom="40dp"
+            android:layout_marginHorizontal="54dp"
+            />
+
+
+
+
+    <Button
+        android:id="@+id/ButtonConfirm"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_border_regis1"
+        android:padding="16dp"
+        android:text="Confirm"
+        android:textColor="#EFF0F2"
+        android:textSize="16dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
