@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:paddingTop="20dp"
+            android:paddingTop="40dp"
             android:paddingBottom="0dp">
 
             <ImageView
@@ -79,7 +79,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Nama Yayasan"
                     android:textColor="#2D2E2B"
                     android:textSize="22dp"
                     android:textStyle="bold" />
@@ -89,7 +88,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Deskripsi Yayasan"
                     android:textColor="#2D2E2B"
                     android:textSize="18dp" />
             </LinearLayout>
@@ -101,17 +99,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="Alamat Yayasan"
+            android:layout_marginBottom="40dp"
             android:textColor="#2D2E2B"
             android:textSize="18dp"
             android:textAlignment="center">
         </TextView>
 
         <TextView
+            android:id="@+id/donitem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Donated Items: "
+            android:text="Donated Item: "
             android:textStyle="bold"
             android:textSize="28dp"
             android:layout_marginLeft="10dp"
@@ -120,11 +118,74 @@
             android:textColor="#E06465">
         </TextView>
 
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#E3E4E6">
-        </ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E3E4E6"
+            android:layout_below="@id/donitem"
+            android:layout_above="@id/bottom_navigation"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/itempic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" >
+            </ImageView>
+
+<!--            <TextView-->
+<!--                android:id="@+id/itempic"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#E3E4E6"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="28dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp">-->
+<!--            </TextView>-->
+
+            <TextView
+                android:id="@+id/itemname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E3E4E6"
+                android:textStyle="bold"
+                android:textSize="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/itemquantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E3E4E6"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/itemdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E3E4E6"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+            </TextView>
+
+        </LinearLayout>
+
+<!--        <ListView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#E3E4E6">-->
+<!--        </ListView>-->
 
     </LinearLayout>
 
