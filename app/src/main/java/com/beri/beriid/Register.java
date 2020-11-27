@@ -2,6 +2,7 @@ package com.beri.beriid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,37 +11,52 @@ import android.widget.Toast;
 
 public class Register extends AppCompatActivity {
     DatabaseHelper db;
-    EditText e1,e2,e3,e4,e5;
+    EditText eName,eEmail,ePassword,eAddress,eVerify, eNIK;
     Button b1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         db = new DatabaseHelper(this);
-        e1=(EditText)findViewById(R.id.InputEmail);
-        e2=(EditText)findViewById(R.id.InputPassword);
-        e3=(EditText)findViewById(R.id.VerifPassword);
-        e4=(EditText)findViewById(R.id.InputName);
-        e5=(EditText)findViewById(R.id.InputAddress);
+
+        eName=(EditText)findViewById(R.id.InputName);
+        eEmail=(EditText)findViewById(R.id.LoginEmail);
+        ePassword=(EditText)findViewById(R.id.InputPassword);
+        eVerify=(EditText)findViewById(R.id.VerifPassword);
+        eAddress=(EditText)findViewById(R.id.InputAddress);
+        eNIK = (EditText)findViewById(R.id.InputNIK);
         b1=(Button)findViewById(R.id.ButtonConfirm);
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s1 = e1.getText().toString();
-                String s2 = e2.getText().toString();
-                String s3 = e3.getText().toString();
-                String s4 = e4.getText().toString();
-                String s5 = e5.getText().toString();
-                if (s1.equals("")||s2.equals("")||s3.equals("")||s4.equals("")||s5.equals("")){
+                String sName = eName.getText().toString();//s1
+                String sEmail = eEmail.getText().toString();//s2
+                String sPassword = ePassword.getText().toString();//s3
+                String sVerify = eVerify.getText().toString();//s4
+                String sAddress = eAddress.getText().toString();//s5
+                String sNIK = eNIK.getText().toString();//s6
+//                public boolean insertdatauser(String name,String email,String password,String nik,String address){
+                if (sName.equals("")||sEmail.equals("")||sPassword.equals("")||sVerify.equals("")||sAddress.equals("")){
                     Toast.makeText(getApplicationContext(),"Fields are empty",Toast.LENGTH_SHORT).show();
                 }
+                if (!sPassword.equals(sVerify)){
+                    Toast.makeText(getApplicationContext(),"Password not same",Toast.LENGTH_SHORT).show();
+                }
                 else {
-                    if (s2.equals(s3)){
-                        Boolean checkemail = db.checkemail(s1);
+                    if (sVerify.equals(sPassword)){
+                        Boolean checkemail = db.checkemail(sEmail);
                         if (checkemail==true){
-                            Boolean insert = db.insertdatauser(s1,s2,s3,s4,s5);
+                            Boolean insert = db.insertdatauser(sName,sEmail,sPassword,sNIK,sAddress);
                             if (insert==true){
                                 Toast.makeText(getApplicationContext(),"Registered Successfullf",Toast.LENGTH_SHORT).show();
+
+                                int id = db.getuser(sEmail,sPassword);
+                                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                                i.putExtra("userid", Integer.toString(id));
+
+
+                                startActivity(i);
                             }
                         }
                         else {
