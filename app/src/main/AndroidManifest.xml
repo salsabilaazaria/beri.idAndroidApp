@@ -32,7 +32,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".YayasanListActivity" />
+<<<<<<< HEAD
+                <activity android:name=".YayasanDetailActivity" />
+=======
         <activity android:name=".YayasanDetailActivity" />
+>>>>>>> origin/master
     </application>
 
 </manifest>

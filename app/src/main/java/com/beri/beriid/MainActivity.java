@@ -1,11 +1,19 @@
 package com.beri.beriid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD
+import android.view.MenuItem;
+=======
 import android.view.View;
+>>>>>>> origin/master
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+     
 
 
         DatabaseHelper db = new DatabaseHelper(this);
@@ -35,8 +46,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+<<<<<<< HEAD
+=======
     public void gantikelogin(View view) {
         Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
     }
+>>>>>>> origin/master
 }
