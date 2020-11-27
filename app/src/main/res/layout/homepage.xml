@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--TOP BERI.ID-->
+    <TextView
+        android:id="@+id/beri.id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2E2D2B"
+        android:text="beri.id"
+        android:textSize="16pt"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:textColor="#F8F6F9"
+        />
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/banner"
+            android:id="@+id/banner"
+            android:layout_below="@id/beri.id"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nearest Foundation"
+            android:layout_below="@id/banner"
+            android:id="@+id/texthome"
+            android:textSize="12pt"
+            android:layout_marginHorizontal="10dp"
+            />
+
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="450px"
+            android:layout_below="@id/texthome"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/recyclerviewyayasan"-->
+<!--            android:layout_below="@id/map"-->
+<!--            android:layout_above="@id/bottom_navigation"-->
+
+<!--            />-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/map"
+            android:layout_above="@id/bottom_navigation"
+            android:id="@+id/seefoundation">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_baseline_home_24"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Foundation "
+                android:textSize="17pt"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:layout_gravity="center"
+                />
+
+
+        </LinearLayout>
+
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_navigation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            app:menu="@menu/bottom_navigation"-->
+<!--            android:background="#2E2D2B"-->
+<!--            app:itemTextColor="#F8F6F9"-->
+<!--            app:itemIconSize="90px"-->
+<!--            app:itemIconTint="#F8F6F9" />-->
+
+
+
+
+
+
+</RelativeLayout>

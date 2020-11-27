@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private ByteArrayOutputStream objectByteArrayOutputStream;
     private byte[] imageInBytes;
-
+  
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
