@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title=" " />
+        android:title=" "
+        android:background="#2E2D2B"
+        app:itemTextColor="#F8F6F9"
+        app:itemIconSize="90px"
+        app:itemIconTint="#F8F6F9"/>
 
     <item
         android:id="@+id/nav_profie"
         android:icon="@drawable/ic_baseline_person_24"
         android:title=" "
+        android:background="#2E2D2B"
+        app:itemTextColor="#F8F6F9"
+        app:itemIconSize="90px"
+        app:itemIconTint="#F8F6F9"
         />
 
 
