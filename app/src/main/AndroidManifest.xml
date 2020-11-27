@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".HistoryTransactionDetail"></activity>
-<!--        <activity android:name=".HistoryTransaction" />-->
+        <activity android:name=".HistoryTransaction" />
         <activity android:name=".DoneActivity" />
         <activity android:name=".DonateActivity" />
 
@@ -32,11 +32,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".YayasanListActivity" />
-<<<<<<< HEAD
-                <activity android:name=".YayasanDetailActivity" />
-=======
         <activity android:name=".YayasanDetailActivity" />
->>>>>>> origin/master
     </application>
 
 </manifest>

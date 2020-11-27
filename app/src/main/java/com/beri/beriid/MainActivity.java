@@ -1,16 +1,12 @@
 package com.beri.beriid;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
-import android.os.Bundle;
-<<<<<<< HEAD
 import android.view.MenuItem;
-=======
 import android.view.View;
->>>>>>> origin/master
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-     
-
 
         DatabaseHelper db = new DatabaseHelper(this);
 
@@ -38,19 +32,13 @@ public class MainActivity extends AppCompatActivity {
 //                db.addData("Pelangi Foundation", "Orphanage", "Cigondewah Hilir, Margaasih, Bandung");
 //                db.addData("Sayap Ibu Foundation", "Orphanage", "Jl. Graha Raya Bintaro No.33B, Pd. Kacang Bar., Kec. Pd. Aren, Kota Tangerang Selatan");
 //                db.addData("Rumah Yatim", "Orphanage", "Jl. Beringin Raya No.94, RT.002/RW.008, Karawaci Baru, Kec. Karawaci, Kota Tangerang");
-
-
-
-        Toast.makeText(this,"Value Saved", Toast.LENGTH_LONG).show();
+//
+//        Toast.makeText(this,"Value Saved", Toast.LENGTH_LONG).show();
 
     }
 
-
-<<<<<<< HEAD
-=======
     public void gantikelogin(View view) {
         Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
     }
->>>>>>> origin/master
 }
