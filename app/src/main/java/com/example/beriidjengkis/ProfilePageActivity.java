@@ -2,13 +2,9 @@ package com.beri.beriid;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.beri.beriid.Model.User;
@@ -21,7 +17,7 @@ public class ProfilePageActivity extends AppCompatActivity {
     TextView profileemail;
     TextView profileaddress;
 
-    com.beri.beriid.DatabaseHelper db;
+    DatabaseHelper db;
     String userid;
     ArrayList<User> userArrayList;
 
@@ -42,7 +38,7 @@ public class ProfilePageActivity extends AppCompatActivity {
 //        userid = intent.getStringExtra("userid");
 
 
-        db = new com.beri.beriid.DatabaseHelper(this);
+        db = new DatabaseHelper(this);
 
         userArrayList = db.getAllUserData();
 
