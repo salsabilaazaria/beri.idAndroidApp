@@ -8,17 +8,24 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.beri.beriid.Model.Donation;
+import com.beri.beriid.Model.Foundation;
 import com.beri.beriid.Model.History;
+import com.beri.beriid.Model.User;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "beriiddatabase";
     private static final int DB_VERSION = 1;
+    private ByteArrayOutputStream objectByteArrayOutputStream;
+    private byte[] imageInBytes;
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+
     }
 
     @Override
@@ -210,4 +217,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 }
+
 
