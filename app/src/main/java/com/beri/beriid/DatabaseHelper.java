@@ -10,7 +10,7 @@ import android.graphics.BitmapFactory;
 
 import com.beri.beriid.Model.Donation;
 import com.beri.beriid.Model.Foundation;
-import com.beri.beriid.Model.History;
+
 import com.beri.beriid.Model.User;
 
 import java.io.ByteArrayOutputStream;
