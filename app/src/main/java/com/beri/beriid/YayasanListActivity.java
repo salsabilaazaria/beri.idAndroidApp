@@ -46,6 +46,7 @@ public class YayasanListActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(getApplicationContext(),YayasanDetailActivity.class);
+                intent.putExtra("id", arrayList.get(position).getId());
                 intent.putExtra("name", arrayList.get(position).getName().toString());
                 intent.putExtra("desc", arrayList.get(position).getDescription().toString());
                 intent.putExtra("address", arrayList.get(position).getAddress().toString());
