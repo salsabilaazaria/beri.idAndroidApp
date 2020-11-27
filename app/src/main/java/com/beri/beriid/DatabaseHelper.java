@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.beri.beriid.Model.Foundation;
 import com.beri.beriid.Model.History;
 
 import java.util.ArrayList;
