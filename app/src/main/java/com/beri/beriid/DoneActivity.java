@@ -17,6 +17,7 @@ public class DoneActivity extends AppCompatActivity {
 
     ImageView done;
     Button button;
+    int user_id;
 
     AnimatedVectorDrawableCompat avd;
     AnimatedVectorDrawable avd2;
@@ -29,6 +30,10 @@ public class DoneActivity extends AppCompatActivity {
         done = findViewById(R.id.done);
         button = findViewById(R.id.backToHome);
 
+        Intent intent = getIntent();
+
+        user_id = intent.getIntExtra("user_id", 0);
+
         Drawable drawable = done.getDrawable();
         if(drawable instanceof AnimatedVectorDrawableCompat){
             avd = (AnimatedVectorDrawableCompat) drawable;
@@ -38,18 +43,21 @@ public class DoneActivity extends AppCompatActivity {
             avd2.start();
         }
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
+                i.putExtra("user_id", user_id);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent i = new Intent(getApplicationContext(), HomePageActivity.class);
+        i.putExtra("user_id", user_id);
+        startActivity(i);
     }
 }

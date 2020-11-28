@@ -39,31 +39,30 @@ public class Register extends AppCompatActivity {
 //                public boolean insertdatauser(String name,String email,String password,String nik,String address){
                 if (sName.equals("")||sEmail.equals("")||sPassword.equals("")||sVerify.equals("")||sAddress.equals("")){
                     Toast.makeText(getApplicationContext(),"Fields are empty",Toast.LENGTH_SHORT).show();
-                }
-                if (!sPassword.equals(sVerify)){
-                    Toast.makeText(getApplicationContext(),"Password not same",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    if (sVerify.equals(sPassword)){
-                        Boolean checkemail = db.checkemail(sEmail);
-                        if (checkemail==true){
-                            Boolean insert = db.insertdatauser(sName,sEmail,sPassword,sNIK,sAddress);
-                            if (insert==true){
-                                Toast.makeText(getApplicationContext(),"Registered Successfullf",Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!sPassword.equals(sVerify)){
+                        Toast.makeText(getApplicationContext(),"Password not same",Toast.LENGTH_SHORT).show();
+                    }else {
+                        if (sVerify.equals(sPassword)){
+                            Boolean checkemail = db.checkemail(sEmail);
+                            if (checkemail==true){
+                                Boolean insert = db.insertdatauser(sName,sEmail,sPassword,sNIK,sAddress);
+                                if (insert==true){
+                                    Toast.makeText(getApplicationContext(),"Registered Successful",Toast.LENGTH_SHORT).show();
 
-                                int id = db.getuser(sEmail,sPassword);
-                                Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                                i.putExtra("userid", Integer.toString(id));
+                                    int id = db.getuser(sEmail,sPassword);
+                                    Intent i = new Intent(getApplicationContext(),HomePageActivity.class);
+                                    i.putExtra("user_id", id);
 
-
-                                startActivity(i);
+                                    startActivity(i);
+                                }
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(),"Email Already Exist",Toast.LENGTH_SHORT).show();
                             }
                         }
-                        else {
-                            Toast.makeText(getApplicationContext(),"Email Already Exist",Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(getApplicationContext(), "Password do not match",Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(getApplicationContext(), "Password do not match",Toast.LENGTH_SHORT).show();
                 }
 
             }

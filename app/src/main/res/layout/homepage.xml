@@ -55,52 +55,43 @@
 <!--            />-->
 
 
-        <LinearLayout
+    <LinearLayout
+        android:id="@+id/seefoundation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/map">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_home_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="Foundation "
+            android:textSize="17pt" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+    </LinearLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/map"
-            android:layout_above="@id/bottom_navigation"
-            android:id="@+id/seefoundation">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/ic_baseline_home_24"
-                android:layout_gravity="center"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Foundation "
-                android:textSize="17pt"
-                android:layout_marginLeft="10dp"
-                android:gravity="center"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
-                android:layout_gravity="center"
-                />
-
-
-        </LinearLayout>
-
-<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--            android:id="@+id/bottom_navigation"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            app:menu="@menu/bottom_navigation"-->
-<!--            android:background="#2E2D2B"-->
-<!--            app:itemTextColor="#F8F6F9"-->
-<!--            app:itemIconSize="90px"-->
-<!--            app:itemIconTint="#F8F6F9" />-->
-
-
-
-
-
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_navigation"
+            android:background="#2E2D2B"
+            app:itemTextColor="#F8F6F9"
+            app:itemIconSize="90px"
+            app:itemIconTint="#F8F6F9" />
 
 </RelativeLayout>

@@ -15,24 +15,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HistoryTransactionDetail"></activity>
-        <activity android:name=".HistoryTransaction" />
-        <activity android:name=".DoneActivity" />
         <activity android:name=".DonateActivity" />
+        <activity android:name=".DoneActivity" />
+        <activity android:name=".HistoryTransaction" />
+        <activity android:name=".HistoryTransactionDetail"></activity>
+        <activity android:name=".HomePageActivity"/>
+        <activity android:name=".ProfilePageActivity"/>
+        <activity android:name=".Register"/>
+        <activity android:name=".YayasanDetailActivity" />
+        <activity android:name=".YayasanListActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key" />
 
-        <activity android:name=".HistoryTransaction">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".YayasanListActivity" />
-        <activity android:name=".YayasanDetailActivity" />
     </application>
 
 </manifest>

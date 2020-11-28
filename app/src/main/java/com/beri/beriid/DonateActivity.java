@@ -36,6 +36,7 @@ public class DonateActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_SELECT_IMAGE = 2;
     private ImageView imageSelected;
     Bitmap imageToStore;
+    int user_id, f_id;
 
     DatabaseHelper db;
 
@@ -43,6 +44,11 @@ public class DonateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate);
+
+        Intent intent = getIntent();
+
+        user_id = intent.getIntExtra("user_id", 0);
+        f_id = intent.getIntExtra("f_id", 0);
 
         imageSelected = findViewById(R.id.imageSelected);
         findViewById(R.id.selectImageButton).setOnClickListener(new View.OnClickListener() {
@@ -119,10 +125,11 @@ public class DonateActivity extends AppCompatActivity {
 
     public void storeImage(View view){
         if(!name.getEditText().getText().toString().isEmpty() && !desc.getEditText().getText().toString().isEmpty() && !quantity.getEditText().getText().toString().isEmpty() && imageSelected.getDrawable()!=null){
-            db.addDonationData(new Donation(1, 1, Integer.parseInt(quantity.getEditText().getText().toString()), name.getEditText().getText().toString(), desc.getEditText().getText().toString(), imageToStore));
+            db.addDonationData(new Donation(user_id, f_id, Integer.parseInt(quantity.getEditText().getText().toString()), name.getEditText().getText().toString(), desc.getEditText().getText().toString(), imageToStore));
             Toast.makeText(this, "Data added!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, DoneActivity.class);
-            startActivity(intent);
+            Intent i = new Intent(this, DoneActivity.class);
+            i.putExtra("user_id", user_id);
+            startActivity(i);
         }else{
             Toast.makeText(this, "Please insert data", Toast.LENGTH_SHORT).show();
         }

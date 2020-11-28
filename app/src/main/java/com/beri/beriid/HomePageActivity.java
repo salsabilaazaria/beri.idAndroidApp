@@ -1,24 +1,12 @@
 package com.beri.beriid;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.beri.beriid.Adapters.HomeYayasanAdapter;
-import com.beri.beriid.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -26,25 +14,18 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.ArrayList;
-
-import static android.widget.AdapterView.*;
-
 public class HomePageActivity extends FragmentActivity implements OnMapReadyCallback {
 
     GoogleMap map;
-    DatabaseHelper mydb;
-    ArrayList<String> id, name, description, address;
-    HomeYayasanAdapter homeYayasanAdapter;
-    RecyclerView recyclerView;
     LinearLayout seefoundation;
-
-
+    int user_id;
 
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
+
+        user_id = getIntent().getIntExtra("user_id", 0);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -80,6 +61,7 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
 
     public void seefoundationpage(){
         Intent i = new Intent(this,YayasanListActivity.class);
+        i.putExtra("user_id", user_id);
         startActivity(i);
     }
 
@@ -108,8 +90,5 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
         map.moveCamera(CameraUpdateFactory.newLatLng(binus));
 
     }
-
-
-
 
 }

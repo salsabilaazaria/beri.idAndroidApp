@@ -100,19 +100,18 @@
         android:gravity="right"
         >
     <!--NAVIGATION BAR-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bottom_navigation"
-        android:layout_margin="30dp"
-        android:text="DONATE"
-        android:backgroundTint="#C65E5B"
-        android:textColor="#F8F6F9"
-        android:paddingHorizontal="30dp"
+        <Button
+            android:id="@+id/donateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottom_navigation"
+            android:layout_margin="30dp"
+            android:backgroundTint="#C65E5B"
+            android:paddingHorizontal="30dp"
+            android:text="DONATE"
 
 
-
-         />
+            android:textColor="#F8F6F9" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

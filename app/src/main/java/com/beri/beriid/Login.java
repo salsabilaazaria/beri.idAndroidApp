@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 DatabaseHelper db;
+int id;
 
 private EditText email, password;
 private Button login;
@@ -36,29 +37,22 @@ private Button login;
                 if (sEmail.equals("")||sPassword.equals("")){
                     Toast.makeText(getApplicationContext(),"Fields are empty",Toast.LENGTH_SHORT).show();
                 }
-
                 else {
-
-
                     Boolean checklogin = db.checkuser(sEmail, sPassword);
 
                     if (checklogin==true){
                         Toast.makeText(getApplicationContext(),"Login Succesfully",Toast.LENGTH_SHORT).show();
-                        int id = db.getuser(sEmail,sPassword);
+                        id = db.getuser(sEmail,sPassword);
 
-                        Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                        i.putExtra("userid", Integer.toString(id));
-
-
+                        Intent i = new Intent(getApplicationContext(),HomePageActivity.class);
+                        i.putExtra("user_id", id);
 
                         startActivity(i);
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"You haven't register",Toast.LENGTH_SHORT).show();
                     }
-
                 }
-
             }
         });
 

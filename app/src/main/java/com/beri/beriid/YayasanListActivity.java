@@ -24,6 +24,7 @@ public class YayasanListActivity extends AppCompatActivity {
     ListView YayasanLV;
     ArrayList<Foundation> arrayList;
     YayasanAdapter yayasanAdapter;
+    int user_id;
 
 
 
@@ -33,6 +34,9 @@ public class YayasanListActivity extends AppCompatActivity {
 
         YayasanLV = (ListView)findViewById(R.id.yayasanlistView);
         db = new DatabaseHelper(this);
+
+        Intent intent = getIntent();
+        user_id = intent.getIntExtra("user_id", 0);
 
         loadDataInListView();
 
@@ -44,8 +48,8 @@ public class YayasanListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
                 Intent intent = new Intent(getApplicationContext(),YayasanDetailActivity.class);
+                intent.putExtra("user_id", user_id);
                 intent.putExtra("id", arrayList.get(position).getId());
                 intent.putExtra("name", arrayList.get(position).getName().toString());
                 intent.putExtra("desc", arrayList.get(position).getDescription().toString());
