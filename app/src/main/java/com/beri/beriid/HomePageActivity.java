@@ -29,22 +29,28 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
         setContentView(R.layout.homepage);
 
         //bottom navigation
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+
+            }
+        });
+
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public void onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_profie:
                         startActivity(new Intent(getApplicationContext(), ProfilePageActivity.class));
+                        finish();
                         overridePendingTransition(0, 0);
-                        return true;
+                        return;
                     case R.id.nav_home:
-                        return true;
                 }
-                return false;
             }
         });
 
