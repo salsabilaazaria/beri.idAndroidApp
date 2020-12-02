@@ -45,9 +45,12 @@ public class HistoryTransactionDetail extends AppCompatActivity {
         donationFoundationAddress.setText(intent.getStringExtra("foundation_address"));
 //        donationImage.setText(intent.getStringExtra("image"));
 //    ImageView donationImage;
+
+        int qty = intent.getIntExtra("quantity",1);
+        String qtystring = Integer.toString(qty);
         donationImage.setImageBitmap(bmp);
         donationName.setText(intent.getStringExtra("name"));
         donationQuantity.setText(intent.getStringExtra("description"));
-        donationDescription.setText(intent.getStringExtra("quantity"));
+        donationDescription.setText(qtystring);
     }
 }
