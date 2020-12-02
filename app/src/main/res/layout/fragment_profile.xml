@@ -7,27 +7,27 @@
     tools:context=".ProfileFragment"
     >
 
-    <TextView
-        android:id="@+id/myaccount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="My Account"
-        android:textSize="16pt"
-        android:textAlignment="center"
-        android:textColor="#F8F6F9"
-        android:background="#2E2D2B"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/myaccount"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        android:text="My Account"-->
+<!--        android:textSize="16pt"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#F8F6F9"-->
+<!--        android:background="#2E2D2B"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
 
 
     <ImageView
         android:id="@+id/profile_picture"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
-        android:layout_below="@id/myaccount"
+
         android:src="@mipmap/ic_launcher"
         android:layout_margin="20dp"
         android:layout_gravity="center"

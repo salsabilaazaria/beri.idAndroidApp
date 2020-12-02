@@ -21,40 +21,45 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
 
     GoogleMap map;
     LinearLayout seefoundation;
-    int user_id;
+    int userid;
+
+
 
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
 
+        userid = getIntent().getIntExtra("user_id", 0);
+
+
         //bottom navigation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
-        bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
-
-            }
-        });
-
-        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public void onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_profie:
-                        startActivity(new Intent(getApplicationContext(), ProfilePageActivity.class));
-                        finish();
-                        overridePendingTransition(0, 0);
-                        return;
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
                     case R.id.nav_home:
+
+
+
+                    case R.id.nav_profie:
+                        Intent intent = new Intent(HomePageActivity.this, ProfilePageActivity.class);
+                        intent.putExtra("userid",userid);
+                        startActivity(intent);
+                        return true;
+
                 }
+                return false;
             }
+
         });
 
-        user_id = getIntent().getIntExtra("user_id", 0);
+
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -90,7 +95,7 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
 
     public void seefoundationpage(){
         Intent i = new Intent(this,YayasanListActivity.class);
-        i.putExtra("user_id", user_id);
+        i.putExtra("user_id", userid);
         startActivity(i);
     }
 

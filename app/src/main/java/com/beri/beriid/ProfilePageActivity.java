@@ -1,5 +1,8 @@
 package com.beri.beriid;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -13,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -26,34 +31,45 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class ProfilePageActivity extends AppCompatActivity {
-    String userid;
+    int userid;
+    DrawerLayout drawerLayout;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
 
-        //bottom navigation
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        userid = getIntent().getIntExtra("userid",0);
 
-        bottomNavigationView.setSelectedItemId(R.id.nav_profie);
+        //bottom navigation
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_profie:
-                        return true;
+                switch (menuItem.getItemId()){
                     case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), HomePageActivity.class));
-                        overridePendingTransition(0, 0);
+                        Intent intent = new Intent(ProfilePageActivity.this, HomePageActivity.class);
+                        intent.putExtra("user_id",userid);
+                        startActivity(intent);
                         return true;
+
+                    case R.id.nav_profie:
+
                 }
                 return false;
             }
+
         });
 
-        Intent i = getIntent();
-        userid = i.getStringExtra("userid");
+
+
+
+        //NAV DRAWER
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+
+
 
         TabLayout tabLayout = findViewById(R.id.tabBar);
         TabItem tabProfile = findViewById(R.id.ProfilePageTab);
@@ -83,9 +99,53 @@ public class ProfilePageActivity extends AppCompatActivity {
 
 
     }
-    public String getuserid(){
+    public int getuserid(){
         return userid;
     }
+
+    //NAVDRAWER
+
+    public void ClickMenu(View view){
+        openDrawer(drawerLayout);
+
+    }
+
+    private static void openDrawer(DrawerLayout drawerLayout) {
+        //open drawer
+        drawerLayout.openDrawer(GravityCompat.START);
+
+    }
+
+    public void ClickLogo(View view){
+
+        closeDrawer(drawerLayout);
+    }
+
+    private static void closeDrawer(DrawerLayout drawerLayout) {
+        //close drawer
+        //check condition
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            //when drawer is open, close
+            drawerLayout.closeDrawer(GravityCompat.START);
+
+        }
+
+    }
+
+    public void ClickLogout(View view){
+        Intent i = new Intent(this, Login.class);
+        startActivity(i);
+    }
+
+
+    protected void onPause(){
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
+
+
+    // CODINGAN LAMA
+
 //    TextView profileusername;
 //    TextView profilenik;
 //    TextView profileemail;

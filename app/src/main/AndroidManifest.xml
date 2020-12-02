@@ -20,6 +20,7 @@
         <activity android:name=".HistoryTransaction" />
         <activity android:name=".HistoryTransactionDetail" />
         <activity android:name=".HomePageActivity" />
+<!--        <activity android:name=".Login" />-->
         <activity android:name=".ProfilePageActivity" />
         <activity android:name=".Register" />
         <activity android:name=".YayasanDetailActivity" />

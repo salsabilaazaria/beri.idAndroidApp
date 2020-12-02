@@ -2,18 +2,21 @@ package com.beri.beriid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.beri.beriid.Adapters.YayasanAdapter;
 import com.beri.beriid.Model.Foundation;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -43,6 +46,30 @@ public class YayasanListActivity extends AppCompatActivity {
         arrayList = db.getAllYayasanData();
         yayasanAdapter = new YayasanAdapter(this, arrayList);
         YayasanLV.setAdapter(yayasanAdapter);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.nav_home:
+                        Intent intent = new Intent(YayasanListActivity.this, HomePageActivity.class);
+                        intent.putExtra("user_id",user_id);
+                        startActivity(intent);
+                        return true;
+
+                    case R.id.nav_profie:
+                        Intent i = new Intent(YayasanListActivity.this, ProfilePageActivity.class);
+                        i.putExtra("userid",user_id);
+                        startActivity(i);
+                        return true;
+
+                }
+                return false;
+            }
+
+        });
 
         YayasanLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

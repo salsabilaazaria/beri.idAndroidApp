@@ -54,8 +54,9 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
 
-    String userid;
+    int userid;
     ArrayList<User> userArrayList;
+    User currentQ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         ProfilePageActivity activity = (ProfilePageActivity) getActivity();
-        String userid = activity.getuserid();
+        int userid = activity.getuserid();
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -85,8 +86,9 @@ public class ProfileFragment extends Fragment {
 //
 //
 //        db = new com.beri.beriid.DatabaseHelper(this);
-//
+
         userArrayList = db.getAllUserData(userid);
+
 //
 //
         TextView profileusername = (TextView) view.findViewById(R.id.profile_username);

@@ -117,7 +117,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //GET USER DATA
-    public ArrayList<User> getAllUserData(String userid){
+    public ArrayList<User> getAllUserData(int user_id){
+        String userid = Integer.toString(user_id);
         ArrayList<User> arrayList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT *FROM users WHERE id=?", new String[]{userid});
