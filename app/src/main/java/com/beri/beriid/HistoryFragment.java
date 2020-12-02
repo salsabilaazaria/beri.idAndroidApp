@@ -104,7 +104,6 @@ public class HistoryFragment extends Fragment {
         HistoryLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(activity,"ke click"+position, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(activity, HistoryTransactionDetail.class);
 
                 b = arrayList.get(position).getDonation_image();
