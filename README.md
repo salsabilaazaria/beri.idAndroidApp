@@ -7,7 +7,8 @@
 <br>David Setyawan - 2201770851
 <br>Jonathan Clive - 2201798010
 
-
+Sebagai makhluk sosial, tentunya kita saling membantu. Applikasi Beri.id bertujuan untuk memfalisitasi user untuk melakukan donasi ke yayasan yang terpercaya.
+Pada applikasi ini user dapat mencari dan memilih yayasan apa yang ingin mereka berikan donasi, user juga dapat melihat dengan jelas riwayat donasi mereka. 
 
 ## APPLICATION FLOW BERI.ID
 ![applicationflow](https://user-images.githubusercontent.com/47170403/101132512-b2754e00-3639-11eb-8bf7-b206e3911a36.jpg)
