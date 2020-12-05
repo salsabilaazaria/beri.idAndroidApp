@@ -17,10 +17,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".DonateActivity" />
         <activity android:name=".DoneActivity" />
-        <activity android:name=".HistoryTransaction" />
         <activity android:name=".HistoryTransactionDetail" />
         <activity android:name=".HomePageActivity" />
-<!--        <activity android:name=".Login" />-->
         <activity android:name=".ProfilePageActivity" />
         <activity android:name=".Register" />
         <activity android:name=".YayasanDetailActivity" />
