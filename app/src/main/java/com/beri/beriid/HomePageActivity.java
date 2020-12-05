@@ -43,13 +43,16 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.nav_home:
-
+                        Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+                        intent.putExtra("user_id",userid);
+                        startActivity(intent);
+                        return true;
 
 
                     case R.id.nav_profie:
-                        Intent intent = new Intent(HomePageActivity.this, ProfilePageActivity.class);
-                        intent.putExtra("userid",userid);
-                        startActivity(intent);
+                        Intent i = new Intent(HomePageActivity.this, ProfilePageActivity.class);
+                        i.putExtra("userid",userid);
+                        startActivity(i);
                         return true;
 
                 }
@@ -123,6 +126,14 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
         map.addMarker(new MarkerOptions().position(binus).title("BINUS University"));
         map.moveCamera(CameraUpdateFactory.newLatLng(binus));
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
     }
 
 }

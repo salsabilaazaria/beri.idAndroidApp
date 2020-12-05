@@ -36,37 +36,48 @@ public class Register extends AppCompatActivity {
                 String sVerify = eVerify.getText().toString();//s4
                 String sAddress = eAddress.getText().toString();//s5
                 String sNIK = eNIK.getText().toString();//s6
-//                public boolean insertdatauser(String name,String email,String password,String nik,String address){
+                String passVal = "^" + "(?=.*[a-zA-z])" + "(?=.*[0-9])" + "(?=\\S+$)" + ".{8,}" + "$";
+                String emailVal = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                String nikVal = "^(?=.*[0-9]).{12,}$";
                 if (sName.equals("")||sEmail.equals("")||sPassword.equals("")||sVerify.equals("")||sAddress.equals("")){
-                    Toast.makeText(getApplicationContext(),"Fields are empty",Toast.LENGTH_SHORT).show();
-                } else {
-                    if (!sPassword.equals(sVerify)){
-                        Toast.makeText(getApplicationContext(),"Password not same",Toast.LENGTH_SHORT).show();
-                    }else {
-                        if (sVerify.equals(sPassword)){
-                            Boolean checkemail = db.checkemail(sEmail);
-                            if (checkemail==true){
-                                Boolean insert = db.insertdatauser(sName,sEmail,sPassword,sNIK,sAddress);
-                                if (insert==true){
-                                    Toast.makeText(getApplicationContext(),"Registered Successful",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Please insert all data",Toast.LENGTH_SHORT).show();
+                } else if (!sEmail.matches(emailVal)){
+                    Toast.makeText(getApplicationContext(),"Insert a valid Email",Toast.LENGTH_SHORT).show();
+                } else if (!sPassword.equals(sVerify)) {
+                    Toast.makeText(getApplicationContext(), "Passwords does not match", Toast.LENGTH_SHORT).show();
+                } else if (!sPassword.matches(passVal)) {
+                    Toast.makeText(getApplicationContext(), "Password cannot has whitespaces, only has letters and numbers and minimum of 8 characters", Toast.LENGTH_SHORT).show();
+                } else if(!sNIK.matches(nikVal)) {
+                    Toast.makeText(getApplicationContext(), "NIK can only contain numbers and minimum of 12 character", Toast.LENGTH_SHORT).show();
+                } else{
+                    Boolean checkemail = db.checkemail(sEmail);
+                    if (checkemail==true){
+                        if(!sPassword.matches(passVal)){
+                        }else{
+                            Boolean insert = db.insertdatauser(sName,sEmail,sPassword,sNIK,sAddress);
+                            if (insert==true){
+                                Toast.makeText(getApplicationContext(),"Registered Successful",Toast.LENGTH_SHORT).show();
 
-                                    int id = db.getuser(sEmail,sPassword);
-                                    Intent i = new Intent(getApplicationContext(),HomePageActivity.class);
-                                    i.putExtra("user_id", id);
+                                int id = db.getuser(sEmail,sPassword);
+                                Intent i = new Intent(getApplicationContext(),HomePageActivity.class);
+                                i.putExtra("user_id", id);
 
-                                    startActivity(i);
-                                }
-                            }
-                            else {
-                                Toast.makeText(getApplicationContext(),"Email Already Exist",Toast.LENGTH_SHORT).show();
+                                startActivity(i);
                             }
                         }
-                        Toast.makeText(getApplicationContext(), "Password do not match",Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(),"Email Already Exist",Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
     }
-
+    @Override
+    public void onBackPressed(){
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
 }
