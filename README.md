@@ -11,6 +11,9 @@ Pada applikasi ini user dapat mencari dan memilih yayasan apa yang ingin mereka 
 
 ## TAMPILAN DETAIL BERI.ID
 
+![appflow](https://user-images.githubusercontent.com/47170403/101740004-e4cff100-3afa-11eb-8412-053b848fa34f.png)
+
+
 ###### Register Page
 <br>
 <img width="200" alt="register" src="https://user-images.githubusercontent.com/47170403/101128679-c073a080-3632-11eb-84da-9f9dfe5494ee.png">
@@ -38,7 +41,7 @@ Pada applikasi ini user dapat mencari dan memilih yayasan apa yang ingin mereka 
 
 ###### Confirmation for Accepted Donation Submission Page
 <br>
-<img width="200" alt="accepteddonation" src="https://user-images.githubusercontent.com/47170403/101128721-ce292600-3632-11eb-96b7-26308a44b288.png">
+<img width="200" alt="Screen Shot 2020-12-10 at 3 07 49 PM" src="https://user-images.githubusercontent.com/47170403/101739097-a4bc3e80-3af9-11eb-845a-e76519555324.png">
 
 ###### Profile Page
 - Profile Fragment
